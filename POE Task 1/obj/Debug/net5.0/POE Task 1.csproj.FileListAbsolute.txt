@@ -88,3 +88,5 @@ C:\My Programs\C#\POE Task 1\POE Task 1\obj\Debug\net5.0\Razor\Pages\DonateMoney
 C:\My Programs\C#\POE Task 1\POE Task 1\obj\Debug\net5.0\Razor\Pages\Disasters.cshtml.g.cs
 C:\My Programs\C#\POE Task 1\POE Task 1\obj\Debug\net5.0\Razor\Pages\GoodsDonations.cshtml.g.cs
 C:\My Programs\C#\POE Task 1\POE Task 1\obj\Debug\net5.0\Razor\Pages\Donations.cshtml.g.cs
+C:\My Programs\C#\POE Task 1\POE Task 1\obj\Debug\net5.0\Razor\Pages\AllocateGoods.cshtml.g.cs
+C:\My Programs\C#\POE Task 1\POE Task 1\obj\Debug\net5.0\Razor\Pages\AllocateMoney.cshtml.g.cs

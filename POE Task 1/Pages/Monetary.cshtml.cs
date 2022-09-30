@@ -75,6 +75,8 @@ namespace POE_Task_1.Pages
                                 disasters.location = reader.GetString(3);
                                 disasters.description = reader.GetString(4);
                                 disasters.aidtype = reader.GetString(5);
+                                disasters.allocatedmoney = "" + reader.GetDecimal(6);
+                                disasters.allocatedgoods = reader.GetString(7);
 
                                 listDisasters.Add(disasters);
                             }
@@ -115,5 +117,7 @@ namespace POE_Task_1.Pages
         public string location;
         public string description;
         public string aidtype;
+        public string allocatedmoney;
+        public string allocatedgoods;
     }
 }

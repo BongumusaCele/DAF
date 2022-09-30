@@ -40,7 +40,7 @@ namespace POE_Task_1.Pages
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    string sql = "INSERT INTO Disasters " + "(StartDate, EndDate, Location, Description, AidType) VALUES " + "(@startdate, @enddate, @location, @description, @aidtype);";
+                    string sql = "INSERT INTO Disasters " + "(StartDate, EndDate, Location, Description, AidType, AllocatedMoney, AllocatedGoods) VALUES " + "(@startdate, @enddate, @location, @description, @aidtype, 0, 'None');";
 
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {

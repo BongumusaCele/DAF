@@ -69,6 +69,9 @@
             <th>Location</th>
             <th>Description</th>
             <th>Required Aid Type</th>
+            <th>Allocated Money</th>
+            <th>Allocated Goods</th>
+            <th>Allocate</th>
         </tr>
     </thead>
     <tbody>
@@ -81,6 +84,12 @@
                 <td>@item.location</td>
                 <td>@item.description</td>
                 <td>@item.aidtype</td>
+                <td>R @item.allocatedmoney</td>
+                <td>@item.allocatedgoods</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/AllocateMoney?id=@item.id">Money</a>
+                    <a class="btn btn-danger btn-sm" href="/AllocateGoods?id=@item.id">Goods</a>
+                </td>
             </tr>
         }
     </tbody>
