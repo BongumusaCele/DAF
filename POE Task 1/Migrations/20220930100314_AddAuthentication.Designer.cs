@@ -10,7 +10,7 @@ using POE_Task_1.Model;
 namespace POE_Task_1.Migrations
 {
     [DbContext(typeof(AuthDbContext))]
-    [Migration("20220831114035_AddAuthentication")]
+    [Migration("20220930100314_AddAuthentication")]
     partial class AddAuthentication
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

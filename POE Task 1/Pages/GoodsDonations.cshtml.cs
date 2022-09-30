@@ -36,7 +36,7 @@ namespace POE_Task_1.Pages
 
             try
             {
-                string connectionString = "Server=tcp:the-disaster-alleviation-foundation.database.windows.net,1433;Initial Catalog=The Disaster Alleviation Foundation;Persist Security Info=False;User ID=TDAFadmin;Password=Nomasonto>50;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+                string connectionString = "Data Source=LAPTOP-EJ02DD7T\\SQLEXPRESS;Initial Catalog=CLIENTS;Integrated Security=True";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
