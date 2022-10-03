@@ -64,7 +64,7 @@ namespace POE_Task_1.Pages
             disasters.location = "";
             disasters.description = "";
             disasters.aidtype = "";
-            successMessage = "New Donation Made Succesfully";
+            successMessage = "Disaster Captured Succesfully";
         }
     }
 }

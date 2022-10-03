@@ -90,3 +90,4 @@ C:\My Programs\C#\POE Task 1\POE Task 1\obj\Debug\net5.0\Razor\Pages\GoodsDonati
 C:\My Programs\C#\POE Task 1\POE Task 1\obj\Debug\net5.0\Razor\Pages\Donations.cshtml.g.cs
 C:\My Programs\C#\POE Task 1\POE Task 1\obj\Debug\net5.0\Razor\Pages\AllocateGoods.cshtml.g.cs
 C:\My Programs\C#\POE Task 1\POE Task 1\obj\Debug\net5.0\Razor\Pages\AllocateMoney.cshtml.g.cs
+C:\My Programs\C#\POE Task 1\POE Task 1\obj\Debug\net5.0\Razor\Pages\PurchaseGoods.cshtml.g.cs

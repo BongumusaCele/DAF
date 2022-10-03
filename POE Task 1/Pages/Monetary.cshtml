@@ -59,6 +59,28 @@
 </table>
 
 <br />
+<h2>List of Goods In Inventory</h2>
+<table class="table">
+    <thead>
+        <tr class="table-dark">
+            <th>No.</th>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.listinventory)
+        {
+            <tr class="table-info">
+                <td>@item.id</td>
+                <td>@item.goodsname</td>
+                <td>@item.goodsprice</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<br />
 <h2>List of Disasters</h2>
 <table class="table">
     <thead>

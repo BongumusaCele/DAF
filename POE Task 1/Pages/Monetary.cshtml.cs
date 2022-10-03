@@ -13,6 +13,7 @@ namespace POE_Task_1.Pages
         public List<MonetaryDonations> listDonations = new List<MonetaryDonations>();
         public List<GoodsDonations> listGoodsDonations = new List<GoodsDonations>();
         public List<Disasters> listDisasters = new List<Disasters>();
+        public List<Inventory> listinventory = new List<Inventory>();
         public void OnGet()
         {
             try
@@ -25,6 +26,7 @@ namespace POE_Task_1.Pages
                     string sqlMonetary = "SELECT * FROM MonetaryDonations";
                     string sqlGoods = "SELECT * FROM GoodsDonations";
                     string sqlDisasters = "SELECT * FROM Disasters";
+                    string sqlInventory = "SELECT * FROM Inventory";
 
                     using (SqlCommand command = new SqlCommand(sqlMonetary, connection))
                     {
@@ -82,6 +84,22 @@ namespace POE_Task_1.Pages
                             }
                         }
                     }
+
+                    using (SqlCommand command = new SqlCommand(sqlInventory, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Inventory inventory = new Inventory();
+                                inventory.id = "" + reader.GetInt32(0);
+                                inventory.goodsname = reader.GetString(1);
+                                inventory.goodsprice = reader.GetDecimal(2);
+
+                                listinventory.Add(inventory);
+                            }
+                        }
+                    }
                 }
 
             }
@@ -119,5 +137,12 @@ namespace POE_Task_1.Pages
         public string aidtype;
         public string allocatedmoney;
         public string allocatedgoods;
+    }
+
+    public class Inventory
+    {
+        public string id;
+        public string goodsname;
+        public decimal goodsprice;
     }
 }
