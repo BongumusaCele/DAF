@@ -6168,9 +6168,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\My Programs\\C#\\POE Task 1\\POE Task 1\\POE Task 1.csproj",
-      "projectName": "POE Task 1",
-      "projectPath": "C:\\My Programs\\C#\\POE Task 1\\POE Task 1\\POE Task 1.csproj",
+      "projectUniqueName": "C:\\My Programs\\C#\\POE Task 1\\POE Task 1\\POE Task 2.csproj",
+      "projectName": "POE Task 2",
+      "projectPath": "C:\\My Programs\\C#\\POE Task 1\\POE Task 1\\POE Task 2.csproj",
       "packagesPath": "C:\\Users\\BONGUMUSA\\.nuget\\packages\\",
       "outputPath": "C:\\My Programs\\C#\\POE Task 1\\POE Task 1\\obj\\",
       "projectStyle": "PackageReference",
