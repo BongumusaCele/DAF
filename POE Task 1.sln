@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POE Task 1", "POE Task 1\POE Task 1.csproj", "{D638521C-FAB9-4B39-A44B-C1B72B8B0C50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POE Task 2", "POE Task 1\POE Task 2.csproj", "{D638521C-FAB9-4B39-A44B-C1B72B8B0C50}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
