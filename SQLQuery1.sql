@@ -13,6 +13,12 @@ GoodsPrice DECIMAL(13,2)
 SELECT SUM(Amount)
 FROM MonetaryDonations
 
+SELECT SUM(NumberOfItems)
+FROM GoodsDonations;
+
+SELECT COUNT(ID)
+FROM Disasters;
+
  Update Disasters
  SET Location=@location, Description=@description , AllocatedMoney=@allocatedmoney, AllocatedGoods='None' 
  WHERE id=@i
