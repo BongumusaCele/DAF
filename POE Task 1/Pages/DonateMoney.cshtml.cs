@@ -32,34 +32,42 @@ namespace POE_Task_1.Pages
 
             try
             {
-                string connectionString = "Data Source=LAPTOP-EJ02DD7T\\SQLEXPRESS;Initial Catalog=CLIENTS;Integrated Security=True";
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    string sql = "INSERT INTO MonetaryDonations " + "(Name, Date, Amount) VALUES " + "(@name, @date, @amount);";
-
-                    using (SqlCommand command = new SqlCommand(sql, connection))
-                    {
-                        command.Parameters.AddWithValue("@name", monetaryDonations.name);
-                        command.Parameters.AddWithValue("@date", monetaryDonations.date);
-                        command.Parameters.AddWithValue("@amount", monetaryDonations.amount);
-
-                        command.ExecuteNonQuery();
-                    }
-                }
+                insertMonetaryDonation();
             }
             catch (Exception ex)
             {
                 errorMessage = ex.Message;
             }
 
+            clearMonetaryFeilds();
+        }
+
+        private void insertMonetaryDonation()
+        {
+            string connectionString = "Data Source=LAPTOP-EJ02DD7T\\SQLEXPRESS;Initial Catalog=CLIENTS;Integrated Security=True";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sql = "INSERT INTO MonetaryDonations " + "(Name, Date, Amount) VALUES " + "(@name, @date, @amount);";
+
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@name", monetaryDonations.name);
+                    command.Parameters.AddWithValue("@date", monetaryDonations.date);
+                    command.Parameters.AddWithValue("@amount", monetaryDonations.amount);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        private void clearMonetaryFeilds()
+        {
             monetaryDonations.name = "";
             monetaryDonations.date = "";
             monetaryDonations.amount = "";
             successMessage = "New Donation Made Succesfully";
-
-
         }
     }
 }
