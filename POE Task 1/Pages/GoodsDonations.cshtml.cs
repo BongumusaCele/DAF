@@ -36,36 +36,46 @@ namespace POE_Task_1.Pages
 
             try
             {
-                string connectionString = "Data Source=LAPTOP-EJ02DD7T\\SQLEXPRESS;Initial Catalog=CLIENTS;Integrated Security=True";
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    string sql = "INSERT INTO GoodsDonations " + "(Donor, Date, NumberOfItems, Category, Description) VALUES " + "(@donor, @date, @numberofitems, @category, @description);";
-
-                    using (SqlCommand command = new SqlCommand(sql, connection))
-                    {
-                        command.Parameters.AddWithValue("@donor", goodsDonations.donor);
-                        command.Parameters.AddWithValue("@date", goodsDonations.date);
-                        command.Parameters.AddWithValue("@numberofitems",goodsDonations.numberofitems );
-                        command.Parameters.AddWithValue("@category", goodsDonations.category);
-                        command.Parameters.AddWithValue("@description", goodsDonations.description);
-
-                        command.ExecuteNonQuery();
-                    }
-                }
+                insertGoodsDonation();
             }
             catch (Exception ex)
             {
                 errorMessage = ex.Message;
             }
 
+            clearGoodsFeilds();
+        }
+
+        private void clearGoodsFeilds()
+        {
             goodsDonations.date = "";
             goodsDonations.numberofitems = "";
             goodsDonations.category = "";
             goodsDonations.description = "";
             goodsDonations.donor = "";
             successMessage = "New Donation Made Succesfully";
+        }
+
+        private void insertGoodsDonation()
+        {
+            string connectionString = "Data Source=LAPTOP-EJ02DD7T\\SQLEXPRESS;Initial Catalog=CLIENTS;Integrated Security=True";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sql = "INSERT INTO GoodsDonations " + "(Donor, Date, NumberOfItems, Category, Description) VALUES " + "(@donor, @date, @numberofitems, @category, @description);";
+
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@donor", goodsDonations.donor);
+                    command.Parameters.AddWithValue("@date", goodsDonations.date);
+                    command.Parameters.AddWithValue("@numberofitems", goodsDonations.numberofitems);
+                    command.Parameters.AddWithValue("@category", goodsDonations.category);
+                    command.Parameters.AddWithValue("@description", goodsDonations.description);
+
+                    command.ExecuteNonQuery();
+                }
+            }
         }
     }
 }
