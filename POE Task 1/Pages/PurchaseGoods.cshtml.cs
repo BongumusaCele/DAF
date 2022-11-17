@@ -11,34 +11,14 @@ namespace POE_Task_1.Pages
         public string errorMessage = "";
         public string successMessage = "";
         public static decimal availableMoney;
-
         public static decimal goodsprice;
         public static decimal totalMoney = decrementTotal();
-
-        
 
         public void OnGet()
         {
             try
             {
-                string connectionString = "Data Source=LAPTOP-EJ02DD7T\\SQLEXPRESS;Initial Catalog=CLIENTS;Integrated Security=True";
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    string sqlMonetary = "SELECT SUM(Amount) FROM MonetaryDonations";
-
-                    using (SqlCommand command = new SqlCommand(sqlMonetary, connection))
-                    {
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                availableMoney = reader.GetDecimal(0);
-                            }
-                        }
-                    }
-                }
+                getTotalMoneyDonations();
             }
 
             catch (Exception ex)
@@ -62,30 +42,61 @@ namespace POE_Task_1.Pages
 
             try
             {
-                string connectionString = "Data Source=LAPTOP-EJ02DD7T\\SQLEXPRESS;Initial Catalog=CLIENTS;Integrated Security=True";
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    string sql = "INSERT INTO Inventory " + "(GoodsName, GoodsPrice) VALUES " + "(@goodsname, @goodsprice);";
-
-                    using (SqlCommand command = new SqlCommand(sql, connection))
-                    {
-                        command.Parameters.AddWithValue("@goodsname", inventory.goodsname);
-                        command.Parameters.AddWithValue("@goodsprice", inventory.goodsprice);
-
-                        command.ExecuteNonQuery();
-                    }
-                }
+                PurchaseGoods();
             }
             catch (Exception ex)
             {
                 errorMessage = ex.Message;
             }
 
+            clearPurchaseGoodsFields();
+        }
+
+        private void getTotalMoneyDonations()
+        {
+            string connectionString = "Data Source=LAPTOP-EJ02DD7T\\SQLEXPRESS;Initial Catalog=CLIENTS;Integrated Security=True";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sqlMonetary = "SELECT SUM(Amount) FROM MonetaryDonations";
+
+                using (SqlCommand command = new SqlCommand(sqlMonetary, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            availableMoney = reader.GetDecimal(0);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void clearPurchaseGoodsFields()
+        {
             inventory.goodsname.Equals("");
             successMessage = "Purchase Made Succesfully";
+        }
 
+        private void PurchaseGoods()
+        {
+            string connectionString = "Data Source=LAPTOP-EJ02DD7T\\SQLEXPRESS;Initial Catalog=CLIENTS;Integrated Security=True";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sql = "INSERT INTO Inventory " + "(GoodsName, GoodsPrice) VALUES " + "(@goodsname, @goodsprice);";
+
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@goodsname", inventory.goodsname);
+                    command.Parameters.AddWithValue("@goodsprice", inventory.goodsprice);
+
+                    command.ExecuteNonQuery();
+                }
+            }
         }
 
         public static decimal decrementTotal()
