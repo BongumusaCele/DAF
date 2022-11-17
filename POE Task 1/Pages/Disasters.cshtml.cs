@@ -43,6 +43,12 @@ namespace POE_Task_1.Pages
                 errorMessage = ex.Message;
             }
 
+            clearDisasterFields();
+            
+        }
+
+        private void clearDisasterFields()
+        {
             disasters.startdate = "";
             disasters.enddate = "";
             disasters.location = "";
