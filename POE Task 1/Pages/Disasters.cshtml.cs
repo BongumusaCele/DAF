@@ -47,7 +47,7 @@ namespace POE_Task_1.Pages
             
         }
 
-        private void clearDisasterFields()
+        public void clearDisasterFields()
         {
             disasters.startdate = "";
             disasters.enddate = "";
@@ -57,7 +57,7 @@ namespace POE_Task_1.Pages
             successMessage = "Disaster Captured Succesfully";
         }
 
-        private void insertDisaster()
+        public void insertDisaster()
         {
             string connectionString = "Data Source=LAPTOP-EJ02DD7T\\SQLEXPRESS;Initial Catalog=CLIENTS;Integrated Security=True";
 
