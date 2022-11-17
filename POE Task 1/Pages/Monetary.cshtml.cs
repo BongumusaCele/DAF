@@ -18,94 +18,98 @@ namespace POE_Task_1.Pages
         {
             try
             {
-                string connectionString = "Data Source=LAPTOP-EJ02DD7T\\SQLEXPRESS;Initial Catalog=CLIENTS;Integrated Security=True";
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    string sqlMonetary = "SELECT * FROM MonetaryDonations";
-                    string sqlGoods = "SELECT * FROM GoodsDonations";
-                    string sqlDisasters = "SELECT * FROM Disasters";
-                    string sqlInventory = "SELECT * FROM Inventory";
-
-                    using (SqlCommand command = new SqlCommand(sqlMonetary, connection))
-                    {
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                MonetaryDonations monetaryDonation = new MonetaryDonations();
-                                monetaryDonation.id = "" + reader.GetInt32(0);
-                                monetaryDonation.name = reader.GetString(1);
-                                monetaryDonation.date = reader.GetString(2);
-                                monetaryDonation.amount = "" + reader.GetDecimal(3);
-
-                                listDonations.Add(monetaryDonation);
-                            }
-                        }
-                    }
-
-                    using (SqlCommand command = new SqlCommand(sqlGoods, connection))
-                    {
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                GoodsDonations goodsDonation = new GoodsDonations();
-                                goodsDonation.id = "" + reader.GetInt32(0);
-                                goodsDonation.donor = reader.GetString(1);
-                                goodsDonation.date = reader.GetString(2);
-                                goodsDonation.numberofitems = "" + reader.GetInt32(3);
-                                goodsDonation.category = reader.GetString(4);
-                                goodsDonation.description = reader.GetString(5);
-
-                                listGoodsDonations.Add(goodsDonation);
-                            }
-                        }
-                    }
-
-                    using (SqlCommand command = new SqlCommand(sqlDisasters, connection))
-                    {
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                Disasters disasters = new Disasters();
-                                disasters.id = "" + reader.GetInt32(0);
-                                disasters.startdate = reader.GetString(1);
-                                disasters.enddate = reader.GetString(2);
-                                disasters.location = reader.GetString(3);
-                                disasters.description = reader.GetString(4);
-                                disasters.aidtype = reader.GetString(5);
-                                disasters.allocatedmoney = "" + reader.GetDecimal(6);
-                                disasters.allocatedgoods = reader.GetString(7);
-
-                                listDisasters.Add(disasters);
-                            }
-                        }
-                    }
-
-                    using (SqlCommand command = new SqlCommand(sqlInventory, connection))
-                    {
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                Inventory inventory = new Inventory();
-                                inventory.id = "" + reader.GetInt32(0);
-                                inventory.goodsname = reader.GetString(1);
-                                inventory.goodsprice = reader.GetDecimal(2);
-
-                                listinventory.Add(inventory);
-                            }
-                        }
-                    }
-                }
-
+                displayLists();
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Exception: " + ex.ToString());
+            }
+        }
+
+        private void displayLists()
+        {
+            string connectionString = "Data Source=LAPTOP-EJ02DD7T\\SQLEXPRESS;Initial Catalog=CLIENTS;Integrated Security=True";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sqlMonetary = "SELECT * FROM MonetaryDonations";
+                string sqlGoods = "SELECT * FROM GoodsDonations";
+                string sqlDisasters = "SELECT * FROM Disasters";
+                string sqlInventory = "SELECT * FROM Inventory";
+
+                using (SqlCommand command = new SqlCommand(sqlMonetary, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            MonetaryDonations monetaryDonation = new MonetaryDonations();
+                            monetaryDonation.id = "" + reader.GetInt32(0);
+                            monetaryDonation.name = reader.GetString(1);
+                            monetaryDonation.date = reader.GetString(2);
+                            monetaryDonation.amount = "" + reader.GetDecimal(3);
+
+                            listDonations.Add(monetaryDonation);
+                        }
+                    }
+                }
+
+                using (SqlCommand command = new SqlCommand(sqlGoods, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            GoodsDonations goodsDonation = new GoodsDonations();
+                            goodsDonation.id = "" + reader.GetInt32(0);
+                            goodsDonation.donor = reader.GetString(1);
+                            goodsDonation.date = reader.GetString(2);
+                            goodsDonation.numberofitems = "" + reader.GetInt32(3);
+                            goodsDonation.category = reader.GetString(4);
+                            goodsDonation.description = reader.GetString(5);
+
+                            listGoodsDonations.Add(goodsDonation);
+                        }
+                    }
+                }
+
+                using (SqlCommand command = new SqlCommand(sqlDisasters, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Disasters disasters = new Disasters();
+                            disasters.id = "" + reader.GetInt32(0);
+                            disasters.startdate = reader.GetString(1);
+                            disasters.enddate = reader.GetString(2);
+                            disasters.location = reader.GetString(3);
+                            disasters.description = reader.GetString(4);
+                            disasters.aidtype = reader.GetString(5);
+                            disasters.allocatedmoney = "" + reader.GetDecimal(6);
+                            disasters.allocatedgoods = reader.GetString(7);
+
+                            listDisasters.Add(disasters);
+                        }
+                    }
+                }
+
+                using (SqlCommand command = new SqlCommand(sqlInventory, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Inventory inventory = new Inventory();
+                            inventory.id = "" + reader.GetInt32(0);
+                            inventory.goodsname = reader.GetString(1);
+                            inventory.goodsprice = reader.GetDecimal(2);
+
+                            listinventory.Add(inventory);
+                        }
+                    }
+                }
             }
         }
     }
