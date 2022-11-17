@@ -46,7 +46,7 @@ namespace POE_Task_1.Pages
             clearGoodsFeilds();
         }
 
-        private void clearGoodsFeilds()
+        public void clearGoodsFeilds()
         {
             goodsDonations.date = "";
             goodsDonations.numberofitems = "";
@@ -56,7 +56,7 @@ namespace POE_Task_1.Pages
             successMessage = "New Donation Made Succesfully";
         }
 
-        private void insertGoodsDonation()
+        public void insertGoodsDonation()
         {
             string connectionString = "Data Source=LAPTOP-EJ02DD7T\\SQLEXPRESS;Initial Catalog=CLIENTS;Integrated Security=True";
 
