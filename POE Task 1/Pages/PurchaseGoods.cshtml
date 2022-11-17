@@ -9,7 +9,7 @@
 <br />
 <h2>Purchase Of Goods</h2>
 
-<h2>Available Money: <span style="color: darkblue;">R @(POE_Task_1.Pages.PurchaseGoodsModel.totalMoney)</span></h2>
+<h2>Available Money: <span style="color: darkblue;">R @(Model.decrementTotal(Model.availableMoney, Model.inventory.goodsprice))</span></h2>
 
 <br/>
 <br/>
@@ -25,14 +25,14 @@
     <div class="row mb-3">
         <label class="col-sm-3 col-form-label">Goods Name</label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="goodsname" value="@POE_Task_1.Pages.PurchaseGoodsModel.inventory.goodsname" />
+            <input type="text" class="form-control" name="goodsname" value="@Model.inventory.goodsname" />
         </div>
     </div>
 
     <div class="row mb-3">
         <label class="col-sm-3 col-form-label">Price of Goods</label>
         <div class="col-sm-6">
-            <input type="number" class="form-control" name="goodsprice" value="@POE_Task_1.Pages.PurchaseGoodsModel.inventory.goodsprice" />
+            <input type="number" class="form-control" name="goodsprice" value="@Model.inventory.goodsprice" />
         </div>
     </div>
         @if(Model.successMessage.Length > 0)

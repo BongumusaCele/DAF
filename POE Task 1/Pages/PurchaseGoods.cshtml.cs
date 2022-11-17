@@ -7,12 +7,10 @@ namespace POE_Task_1.Pages
 {
     public class PurchaseGoodsModel : PageModel
     {
-        public static Inventory inventory = new Inventory();
+        public Inventory inventory = new Inventory();
         public string errorMessage = "";
         public string successMessage = "";
-        public static decimal availableMoney;
-        public static decimal goodsprice;
-        public static decimal totalMoney = decrementTotal();
+        public decimal availableMoney;
 
         public void OnGet()
         {
@@ -52,7 +50,7 @@ namespace POE_Task_1.Pages
             clearPurchaseGoodsFields();
         }
 
-        private void getTotalMoneyDonations()
+        public void getTotalMoneyDonations()
         {
             string connectionString = "Data Source=LAPTOP-EJ02DD7T\\SQLEXPRESS;Initial Catalog=CLIENTS;Integrated Security=True";
 
@@ -74,13 +72,13 @@ namespace POE_Task_1.Pages
             }
         }
 
-        private void clearPurchaseGoodsFields()
+        public void clearPurchaseGoodsFields()
         {
             inventory.goodsname.Equals("");
             successMessage = "Purchase Made Succesfully";
         }
 
-        private void PurchaseGoods()
+        public void PurchaseGoods()
         {
             string connectionString = "Data Source=LAPTOP-EJ02DD7T\\SQLEXPRESS;Initial Catalog=CLIENTS;Integrated Security=True";
 
@@ -99,10 +97,11 @@ namespace POE_Task_1.Pages
             }
         }
 
-        public static decimal decrementTotal()
+        public decimal decrementTotal(decimal a, decimal b)
         {
-            decimal total = availableMoney;
-            total = availableMoney - inventory.goodsprice;
+            a = availableMoney;
+            b = inventory.goodsprice;
+            decimal total = a - (b);
             return total;
         }
     }
