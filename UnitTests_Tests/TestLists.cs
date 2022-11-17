@@ -8,7 +8,26 @@ using POE_Task_1.Pages;
 
 namespace UnitTests_Tests
 {
-    internal class TestLists
+    [TestClass]
+    public class TestLists
     {
+        public MonetaryModel monetary = new MonetaryModel();
+
+        [TestMethod]
+        public void Display_Lists()
+        {
+            try
+            {
+                monetary.displayLists();
+                Assert.IsNull(true);
+                Assert.IsTrue(true);
+                return;
+            }
+            catch (Exception ex)
+            {
+                Assert.IsNull(false);
+                Assert.IsNull(ex.Message);
+            }
+        }
     }
 }

@@ -26,7 +26,7 @@ namespace POE_Task_1.Pages
             }
         }
 
-        private void displayLists()
+        public void displayLists()
         {
             string connectionString = "Data Source=LAPTOP-EJ02DD7T\\SQLEXPRESS;Initial Catalog=CLIENTS;Integrated Security=True";
 
