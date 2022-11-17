@@ -7,11 +7,15 @@ namespace POE_Task_1.Pages
 {
     public class PurchaseGoodsModel : PageModel
     {
-        public Inventory inventory = new Inventory();
+        public static Inventory inventory = new Inventory();
         public string errorMessage = "";
         public string successMessage = "";
-        public decimal availableMoney;
-        public decimal totalMoney = 25555000;
+        public static decimal availableMoney;
+
+        public static decimal goodsprice;
+        public static decimal totalMoney = decrementTotal();
+
+        
 
         public void OnGet()
         {
@@ -82,7 +86,13 @@ namespace POE_Task_1.Pages
             inventory.goodsname.Equals("");
             successMessage = "Purchase Made Succesfully";
 
+        }
 
+        public static decimal decrementTotal()
+        {
+            decimal total = availableMoney;
+            total = availableMoney - inventory.goodsprice;
+            return total;
         }
     }
 }

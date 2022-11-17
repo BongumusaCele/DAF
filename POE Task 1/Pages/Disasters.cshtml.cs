@@ -35,24 +35,8 @@ namespace POE_Task_1.Pages
 
             try
             {
-                string connectionString = "Data Source=LAPTOP-EJ02DD7T\\SQLEXPRESS;Initial Catalog=CLIENTS;Integrated Security=True";
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    string sql = "INSERT INTO Disasters " + "(StartDate, EndDate, Location, Description, AidType, AllocatedMoney, AllocatedGoods) VALUES " + "(@startdate, @enddate, @location, @description, @aidtype, 0, 'None');";
-
-                    using (SqlCommand command = new SqlCommand(sql, connection))
-                    {
-                        command.Parameters.AddWithValue("@startdate", disasters.startdate);
-                        command.Parameters.AddWithValue("@enddate", disasters.enddate);
-                        command.Parameters.AddWithValue("@location", disasters.location);
-                        command.Parameters.AddWithValue("@description", disasters.description);
-                        command.Parameters.AddWithValue("@aidtype", disasters.aidtype);
-
-                        command.ExecuteNonQuery();
-                    }
-                }
+                insertDisaster();
+                
             }
             catch (Exception ex)
             {
@@ -65,6 +49,28 @@ namespace POE_Task_1.Pages
             disasters.description = "";
             disasters.aidtype = "";
             successMessage = "Disaster Captured Succesfully";
+        }
+
+        private void insertDisaster()
+        {
+            string connectionString = "Data Source=LAPTOP-EJ02DD7T\\SQLEXPRESS;Initial Catalog=CLIENTS;Integrated Security=True";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sql = "INSERT INTO Disasters " + "(StartDate, EndDate, Location, Description, AidType, AllocatedMoney, AllocatedGoods) VALUES " + "(@startdate, @enddate, @location, @description, @aidtype, 0, 'None');";
+
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@startdate", disasters.startdate);
+                    command.Parameters.AddWithValue("@enddate", disasters.enddate);
+                    command.Parameters.AddWithValue("@location", disasters.location);
+                    command.Parameters.AddWithValue("@description", disasters.description);
+                    command.Parameters.AddWithValue("@aidtype", disasters.aidtype);
+
+                    command.ExecuteNonQuery();
+                }
+            }
         }
     }
 }
