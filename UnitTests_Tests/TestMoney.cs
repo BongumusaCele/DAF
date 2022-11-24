@@ -15,19 +15,19 @@ namespace UnitTests_Tests
         public void Insert_Monetary_Donation()
         {
 
-            //try
-            //{
-            //    DonateMoneyModel donateMoney = new DonateMoneyModel();
-            //    donateMoney.OnPost();
-            //    Assert.IsNull(true);
-            //    Assert.IsTrue(true);
-            //    return;
-            //}
-            //catch (Exception ex)
-            //{
-            //    Assert.IsNull(false);
-            //    Assert.IsNull(ex.Message);
-            //}
+            try
+            {
+                DonateMoneyModel donateMoney = new DonateMoneyModel();
+                donateMoney.OnPost();
+                Assert.IsNull(true);
+                Assert.IsTrue(true);
+                return;
+            }
+            catch (Exception ex)
+            {
+                Assert.IsNull(false);
+                Assert.IsNull(ex.Message);
+            }
         }
     }
 }

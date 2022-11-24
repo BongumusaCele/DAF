@@ -16,18 +16,18 @@ namespace UnitTests_Tests
         public void Insert_Disaster()
         {
 
-            //try
-            //{
-            //    goodsModel.insertGoodsDonation();
-            //    Assert.IsNull(true);
-            //    Assert.IsTrue(true);
-            //    return;
-            //}
-            //catch (Exception ex)
-            //{
-            //    Assert.IsNull(false);
-            //    Assert.IsNull(ex.Message);
-            //}
+            try
+            {
+                goodsModel.insertGoodsDonation();
+                Assert.IsNull(true);
+                Assert.IsTrue(true);
+                return;
+            }
+            catch (Exception ex)
+            {
+                Assert.IsNull(false);
+                Assert.IsNull(ex.Message);
+            }
         }
     }
 }

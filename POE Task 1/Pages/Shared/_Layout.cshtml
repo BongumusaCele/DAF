@@ -45,7 +45,7 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-page="/Stats">Information</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/Stats">Statistics</a>
                                 </li>
                             </ul>
                             <ul class="navbar-nav d-flex justify-content-end ">
@@ -56,6 +56,11 @@
                         }
                         else
                         {
+                            <ul class="navbar-nav flex-grow-1" style="display: flex; align-items: center; column-gap: 1.5rem;">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/Stats">Statistics</a>
+                                </li>
+                            </ul>
                             <ul class="navbar-nav d-flex justify-content-end flex-grow-1">
                                 <li class="nav-item">
                                 <a asp-page="/Login" class="btn btn-outline-primary">login</a>
@@ -63,6 +68,7 @@
                                 <li class="nav-item">
                                 <a asp-page="/Register" class="btn">Register</a>
                                 </li>
+
                             </ul>
                         } 
                 </div>

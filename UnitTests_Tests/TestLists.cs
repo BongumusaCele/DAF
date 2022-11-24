@@ -16,18 +16,18 @@ namespace UnitTests_Tests
         [TestMethod]
         public void Display_Lists()
         {
-            //try
-            //{
-            //    monetary.displayLists();
-            //    Assert.IsNull(true);
-            //    Assert.IsTrue(true);
-            //    return;
-            //}
-            //catch (Exception ex)
-            //{
-            //    Assert.IsNull(false);
-            //    Assert.IsNull(ex.Message);
-            //}
+            try
+            {
+                monetary.displayLists();
+                Assert.IsNull(true);
+                Assert.IsTrue(true);
+                return;
+            }
+            catch (Exception ex)
+            {
+                Assert.IsNull(false);
+                Assert.IsNull(ex.Message);
+            }
         }
     }
 }
